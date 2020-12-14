@@ -21,19 +21,16 @@ namespace Properties
 
    
 
-        // TODO improve
         public IList<string> Names {
             get { return this.names.ToList(); }
             set { names = value.ToArray(); }
         }
 
-        // TODO improve
         public int DeckSize
         {
             get { return this.names.Length * this.seeds.Length; }
         }
 
-        /// TODO improve
         public ISet<Card> Deck
         {
             get

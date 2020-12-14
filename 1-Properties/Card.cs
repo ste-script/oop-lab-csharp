@@ -8,7 +8,7 @@ namespace Properties
     public class Card
     {
         private readonly string seed;
-        private readonly string name;
+        public string Name { get; private set; }
         private readonly int ordinal;
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace Properties
         /// <param name="ordinal">the ordinal number of the card.</param>
         public Card(string name, string seed, int ordinal)
         {
-            this.name = name;
+            this.Name = name;
             this.ordinal = ordinal;
             this.seed = seed;
         }
@@ -38,19 +38,19 @@ namespace Properties
         {
             get { return seed; }
         }
-        
-        // TODO improve
-        public string Name { get; }
-        
 
         // TODO improve
-        public int Ordinal { get; }
+        /*public string Name { get; private set; }*/
+
+
+        // TODO improve
+        public int Ordinal { get => ordinal;}
 
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString()
         {
             // TODO understand string interpolation
-            return $"{this.GetType().Name}(Name={this.Name}, Seed={this.Seed}, Ordinal={this.Ordinal})";
+            return $"{this.GetType().Name}(Name={Name}, Seed={Seed}, Ordinal={Ordinal})";
         }
 
         // TODO generate Equals(object obj)
