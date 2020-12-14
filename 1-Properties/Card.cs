@@ -34,32 +34,49 @@ namespace Properties
         }
 
         // TODO improve
-        public string GetSeed()
+        public string Seed
         {
-            return this.seed;
+            get { return seed; }
         }
+        
+        // TODO improve
+        public string Name { get; }
+        
 
         // TODO improve
-        public string GetName()
-        {
-            return this.name;
-        }
-
-        // TODO improve
-        public int GetOrdinal()
-        {
-            return this.ordinal;
-        }
+        public int Ordinal { get; }
 
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString()
         {
             // TODO understand string interpolation
-            return $"{this.GetType().Name}(Name={this.GetName()}, Seed={this.GetSeed()}, Ordinal={this.GetOrdinal()})";
+            return $"{this.GetType().Name}(Name={this.Name}, Seed={this.Seed}, Ordinal={this.Ordinal})";
         }
 
         // TODO generate Equals(object obj)
+        // override object.Equals
+    public override bool Equals(object obj)
+        {
+            //       
+            // See the full list of guidelines at
+            //   http://go.microsoft.com/fwlink/?LinkID=85237  
+            // and also the guidance for operator== at
+            //   http://go.microsoft.com/fwlink/?LinkId=85238
+            //
 
-        // TODO generate GetHashCode()
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return base.Equals(obj);
+        }
+
+        // override object.GetHashCode
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
     }
 }
